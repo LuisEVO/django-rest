@@ -37,11 +37,11 @@ def validate_pdf_file(value):
 class Workshop(models.Model):
     level = MultiSelectField(choices=LEVEL, blank=True, null=True)
     frequency = MultiSelectField(choices=FREQUENCY, blank=True, null=True)
-    # name = models.CharField(max_length=50)
-    # description = models.CharField(max_length=250)
-    # price =
-    # start_date =
-    # start_time =
-    # end_time =
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=250)
+    price = models.IntegerField()
+    start_date = models.DateField()
+    start_time = models.TimeField()
+    end_time = models.TimeField()
     cover = models.ImageField(upload_to='poster', blank=True, validators=[validate_img_file])
     temary = models.ImageField(upload_to='temary', blank=True, validators=[validate_pdf_file])
