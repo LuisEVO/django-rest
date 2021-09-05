@@ -43,5 +43,5 @@ class Workshop(models.Model):
     start_date = models.DateField(blank=True, null=True)
     start_time = models.TimeField(blank=True, null=True)
     end_time = models.TimeField(blank=True, null=True)
-    cover = models.ImageField(upload_to='poster', blank=True, validators=[validate_img_file])
-    temary = models.ImageField(upload_to='temary', blank=True, validators=[validate_pdf_file])
+    cover = models.ImageField(upload_to='media/poster', blank=True, validators=[validate_img_file])
+    temary = models.ImageField(upload_to='media/temary', blank=True, validators=[validate_pdf_file])
