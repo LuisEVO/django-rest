@@ -8,5 +8,6 @@ router.register(r'courses/cover', workshops_views.WorkshopsCoverPageViewSet, bas
 router.register(r'courses/temary', workshops_views.WorkshopsTemaryViewSet, basename='courses-temary'),
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
+    path('courses/populate', workshops_views.populate_workshops),
 ]

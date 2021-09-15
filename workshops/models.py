@@ -29,19 +29,23 @@ def validate_img_file(value):
 
 def validate_pdf_file(value):
     ext = os.path.splitext(value.name)[1]  # [0] returns path+filename
+    print(ext)
     valid_extensions = ['.pdf']
     if not ext.lower() in valid_extensions:
         raise ValidationError('Unsupported file extension.')
 
 
 class Workshop(models.Model):
-    level = MultiSelectField(choices=LEVEL, blank=True, null=True)
-    frequency = MultiSelectField(choices=FREQUENCY, blank=True, null=True)
-    name = models.TextField(max_length=50, blank=True, null=True)
-    description = models.TextField(max_length=250, blank=True, null=True)
-    price = models.IntegerField(blank=True, null=True)
-    start_date = models.DateField(blank=True, null=True)
-    start_time = models.TimeField(blank=True, null=True)
-    end_time = models.TimeField(blank=True, null=True)
+    name = models.TextField(max_length=50)
+    description = models.TextField(max_length=250)
+    hours = models.PositiveIntegerField()
+    sessions = models.PositiveIntegerField()
+    workshops = models.PositiveIntegerField(default=0)
+    price = models.DecimalField(decimal_places=2, max_digits=6)
+    level = MultiSelectField(choices=LEVEL)
+    frequency = MultiSelectField(choices=FREQUENCY)
+    start_date = models.DateField()
+    start_time = models.TimeField()
+    end_time = models.TimeField()
     cover = models.ImageField(upload_to='poster', blank=True, validators=[validate_img_file])
-    temary = models.ImageField(upload_to='temary', blank=True, validators=[validate_pdf_file])
+    temary = models.FileField(upload_to='temary', blank=True, validators=[validate_pdf_file])
