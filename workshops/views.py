@@ -1,6 +1,6 @@
 import os
 
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 
@@ -24,6 +24,9 @@ class WorkshopsViewSet(viewsets.ModelViewSet):
     serializer_class = WorkshopModelSerializer
     pagination_class = LargeResultsSetPagination
     http_method_names = ['get', 'post', 'put', 'delete']
+    filter_backends = [filters.OrderingFilter, filters.SearchFilter]
+    ordering_fields = ['start_date']
+    search_fields = ['name']
     # permission_classes = [IsAuthenticated]
 
 
@@ -180,6 +183,147 @@ def populate_workshops(request):
             cover="poster/especializacion-java-web-developer.jpg",
             temary="temary/especializacion-java-web-developer.pdf"
         ),
+        Workshop(
+            name="Curso 1",
+            description="Descripción del curso",
+            price=500,
+            level=[1, 2, 3],
+            frequency=[6],
+            start_date="2021-09-25",
+            start_time="14:00",
+            end_time="21:00",
+            hours=102,
+            sessions=12,
+            cover="poster/especializacion-java-web-developer.jpg",
+            temary="temary/especializacion-java-web-developer.pdf"
+        ),
+        Workshop(
+            name="Curso 2",
+            description="Descripción del curso",
+            price=500,
+            level=[1, 2, 3],
+            frequency=[6],
+            start_date="2021-09-25",
+            start_time="16:00",
+            end_time="21:00",
+            hours=102,
+            sessions=12,
+            cover="poster/especializacion-java-web-developer.jpg",
+            temary="temary/especializacion-java-web-developer.pdf"
+        ),
+        Workshop(
+            name="Curso 3",
+            description="Descripción del curso",
+            price=500,
+            level=[1, 2, 3],
+            frequency=[6],
+            start_date="2021-09-25",
+            start_time="16:00",
+            end_time="21:00",
+            hours=102,
+            sessions=12,
+            cover="poster/especializacion-java-web-developer.jpg",
+            temary="temary/especializacion-java-web-developer.pdf"
+        ),
+        Workshop(
+            name="Curso 4",
+            description="Descripción del curso",
+            price=500,
+            level=[1, 2, 3],
+            frequency=[6],
+            start_date="2021-09-25",
+            start_time="16:00",
+            end_time="21:00",
+            hours=102,
+            sessions=12,
+            cover="poster/especializacion-java-web-developer.jpg",
+            temary="temary/especializacion-java-web-developer.pdf"
+        ),
+        Workshop(
+            name="Curso 5",
+            description="Descripción del curso",
+            price=500,
+            level=[1, 2, 3],
+            frequency=[6],
+            start_date="2021-09-25",
+            start_time="16:00",
+            end_time="21:00",
+            hours=102,
+            sessions=12,
+            cover="poster/especializacion-java-web-developer.jpg",
+            temary="temary/especializacion-java-web-developer.pdf"
+        ),
+        Workshop(
+            name="Curso 7",
+            description="Descripción del curso",
+            price=500,
+            level=[1, 2, 3],
+            frequency=[6],
+            start_date="2021-09-25",
+            start_time="16:00",
+            end_time="21:00",
+            hours=102,
+            sessions=12,
+            cover="poster/especializacion-java-web-developer.jpg",
+            temary="temary/especializacion-java-web-developer.pdf"
+        ),
+        Workshop(
+            name="Curso 8",
+            description="Descripción del curso",
+            price=500,
+            level=[1, 2, 3],
+            frequency=[6],
+            start_date="2021-09-25",
+            start_time="16:00",
+            end_time="21:00",
+            hours=102,
+            sessions=12,
+            cover="poster/especializacion-java-web-developer.jpg",
+            temary="temary/especializacion-java-web-developer.pdf"
+        ),
+        Workshop(
+            name="Curso 9",
+            description="Descripción del curso",
+            price=500,
+            level=[1, 2, 3],
+            frequency=[6],
+            start_date="2021-09-25",
+            start_time="16:00",
+            end_time="21:00",
+            hours=102,
+            sessions=12,
+            cover="poster/especializacion-java-web-developer.jpg",
+            temary="temary/especializacion-java-web-developer.pdf"
+        ),
+        Workshop(
+            name="Curso 10",
+            description="Descripción del curso",
+            price=500,
+            level=[1, 2, 3],
+            frequency=[6],
+            start_date="2021-09-25",
+            start_time="16:00",
+            end_time="21:00",
+            hours=102,
+            sessions=12,
+            cover="poster/especializacion-java-web-developer.jpg",
+            temary="temary/especializacion-java-web-developer.pdf"
+        ),
+        Workshop(
+            name="Curso 11",
+            description="Descripción del curso",
+            price=500,
+            level=[1, 2, 3],
+            frequency=[6],
+            start_date="2021-09-25",
+            start_time="16:00",
+            end_time="21:00",
+            hours=102,
+            sessions=12,
+            cover="poster/especializacion-java-web-developer.jpg",
+            temary="temary/especializacion-java-web-developer.pdf"
+        ),
+
     ])
 
     return Response({"message": "database populated"})

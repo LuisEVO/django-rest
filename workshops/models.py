@@ -36,7 +36,7 @@ def validate_pdf_file(value):
 
 
 class Workshop(models.Model):
-    name = models.TextField(max_length=50)
+    name = models.TextField(max_length=250)
     description = models.TextField(max_length=1000)
     hours = models.PositiveIntegerField()
     sessions = models.PositiveIntegerField()
