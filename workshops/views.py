@@ -34,7 +34,7 @@ class WorkshopsCoverPageViewSet(viewsets.ModelViewSet):
     queryset = Workshop.objects.all()
     serializer_class = WorkshopCoverPageModelSerializer
     http_method_names = ['put']
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     parser_classes = (MultiPartParser,)
 
     @swagger_auto_schema(
@@ -49,7 +49,7 @@ class WorkshopsTemaryViewSet(viewsets.ModelViewSet):
     queryset = Workshop.objects.all()
     serializer_class = WorkshopTemaryModelSerializer
     http_method_names = ['put']
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     parser_classes = (MultiPartParser,)
 
     @swagger_auto_schema(
