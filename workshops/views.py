@@ -8,7 +8,7 @@ from djangoProject.settings import MEDIA_ROOT
 from workshops.models import Workshop
 from workshops.serializers import WorkshopModelSerializer, WorkshopCoverPageModelSerializer,\
     WorkshopTemaryModelSerializer
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from drf_yasg.utils import no_body, swagger_auto_schema
 from rest_framework.parsers import MultiPartParser
 from rest_framework.decorators import api_view
@@ -27,7 +27,7 @@ class WorkshopsViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['start_date']
     search_fields = ['name']
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
 
 class WorkshopsCoverPageViewSet(viewsets.ModelViewSet):
