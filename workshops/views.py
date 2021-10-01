@@ -1,15 +1,12 @@
-import os
-
 from rest_framework import viewsets, filters
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 
-from djangoProject.settings import MEDIA_ROOT
-from workshops.models import Workshop
-from workshops.serializers import WorkshopModelSerializer, WorkshopCoverPageModelSerializer,\
+from .models import Workshop
+from .serializers import WorkshopModelSerializer, WorkshopCoverPageModelSerializer,\
     WorkshopTemaryModelSerializer
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
-from drf_yasg.utils import no_body, swagger_auto_schema
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework.parsers import MultiPartParser
 from rest_framework.decorators import api_view
 

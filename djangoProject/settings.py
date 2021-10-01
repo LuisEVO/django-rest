@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'workshops',
+    'custom_auth',
     'multiselectfield',
 ]
 
